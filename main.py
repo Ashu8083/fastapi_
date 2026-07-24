@@ -6,6 +6,6 @@ app = FastAPI()
 
 router = APIRouter()
 
-@router.get("/hello")
+@app.get("/")
 async def hello():
     return {"message": "Hello, World!"}
