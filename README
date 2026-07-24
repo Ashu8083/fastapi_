@@ -1,0 +1,40 @@
+# HI  Welcome to FastApi Tutitorial
+
+- first create vertual env or use docker container 
+-
+- command for create vertual env " python -m venv  envename"
+- if venv lin not installed then install it using "pip inatall virtualenv"
+
+-
+-
+# how to active Virtual env 
+
+- command for mac os and  for window call me 
+- source  vertualenv_name/bin/activate
+
+# Install FastAPi + Uvicorn
+
+- after vertual env activate 
+- use command to install FastApi 
+- "pip install fastapi uvicorn"
+- 
+## for better option use standard version
+-
+- "pip install fastapi[standard]"
+
+
+# To see installed pip library use command 
+- to check  installed pip lib use command 
+- "pip list " 
+
+
+
+
+# How to start with fasttapi 
+
+- create app directory 
+
+- in main project directory create main.py file 
+- - to run use commadn 
+- - "python -m uvicorn main:app"
+
