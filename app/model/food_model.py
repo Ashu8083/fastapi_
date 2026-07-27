@@ -3,19 +3,16 @@ from app.db.database import Base
 from sqlalchemy.orm import Mapped,mapped_column
 from sqlalchemy import Integer,String,Date
 
-class Users(Base):
-    __tablename__ = "users"
+class Food(Base):
+    __tablename__ = "food"
 
     id : Mapped[int] = mapped_column(
         Integer, primary_key=True, index=True
     )
-    username: Mapped[str] = mapped_column(
-        String(220), unique=True
+    name : Mapped[str] = mapped_column(
+        String, unique=True
     )
-    email : Mapped[str] = mapped_column(
-        String, unique=True, index=True
-    )
-    age : Mapped[int] = mapped_column(
+    price : Mapped[int] = mapped_column(
         Integer
     )
     created_at : Mapped[datetime] = mapped_column(
