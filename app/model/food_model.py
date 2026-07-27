@@ -10,7 +10,7 @@ class Food(Base):
         Integer, primary_key=True, index=True
     )
     name : Mapped[str] = mapped_column(
-        String, unique=True
+        String(255), unique=True
     )
     price : Mapped[int] = mapped_column(
         Integer

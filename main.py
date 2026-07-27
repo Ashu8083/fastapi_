@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.routing import APIRouter
 from app.db.database import get_db,Base,engine
-from app.model.user_model import Users
+from app.model.user_model import User
 from app.model.food_model import Food
 from app.api.user_api import user_router
 
