@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DATABASE_URL = "postgresql://postgres:root@localhost:5432/zomato_clone"
+DATABASE_URL = "mysql://root:root1234@localhost:3306/zomato_clone"
 
 engine = create_engine(DATABASE_URL,
                        pool_pre_ping=True)
@@ -20,3 +20,4 @@ def get_db():
         yield db
     finally:
         db.close()
+
