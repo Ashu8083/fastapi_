@@ -157,3 +157,11 @@ deactivate
 
 
 https://chatgpt.com/share/6a65ae2c-d1b4-83ee-8604-1f5a17aa6437
+
+
+
+
+check git version 
+
+git -v
+
