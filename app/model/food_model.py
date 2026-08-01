@@ -28,6 +28,6 @@ class Food(Base):
     restaurant  = relationship(
                             "Restaurant",
                             back_populates="food",
-                            cascade="all, delete-orphan")
+                            )
     
 

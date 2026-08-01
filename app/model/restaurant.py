@@ -29,6 +29,7 @@ class Restaurant(Base):
     updated_at : Mapped[datetime] = mapped_column(
         Date, default=datetime.now, onupdate=datetime.now
     )
-    foods : Mapped[list["Food"]] = relationship(
+    food = relationship(
         "Food", 
-        back_populates="restaurant")
+        back_populates="restaurant",
+        cascade="all, delete-orphan")
