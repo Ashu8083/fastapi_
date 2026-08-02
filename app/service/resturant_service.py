@@ -5,11 +5,18 @@ class ResturentService:
     def __init__(self, repository: RestaurantRepo):
         self.repository: RestaurantRepo = repository
 
-    def get_restaurants(self):
-        return 
+    def get_restaurants_by_location(self, location: str):
+        restaurants = self.repository.get_restaurant_location(location) 
 
-    def get_restaurant_by_id(self, restaurant_id):
-        return 
+        return restaurants
+
+    def get_restaurant_by_location_and_rating(self, location: str, rating: int):
+        restaurants = self.repository.get_restaurant_location_and_rating(location, rating)
+         
+        return restaurants
+    
+    def get_restaurant_by_name(self, restaurant_name: str):
+        return self.repository.get_restaurant_name(restaurant_name)
 
     def create_restaurant(self, restaurant_data):
         resturent = self.repository.get_restaurant_by_email(restaurant_data.email)

@@ -25,11 +25,15 @@ class RestaurantRepo:
            raise ValueError("Internal Error")
 
 
-    def get_restaurant_location(self,location):
+    def get_restaurant_location(self,location)-> list[Restaurant]:
         restaurant = self.db.query(Restaurant).filter(Restaurant.location == location).all()
 
         return restaurant
-        
+    def get_restaurant_name(self,name)-> Restaurant:
+            restaurant = self.db.query(Restaurant).filter(Restaurant.name == name).first()
+
+            
+            return restaurant
 
     def get_restaurnt_by_name(self,name):
         restaurant = self.db.query(Restaurant).filter(Restaurant.name == name).all()
@@ -65,5 +69,11 @@ class RestaurantRepo:
 
         return "Record Deleted"
 
+
+    def get_restaurant_location_and_rating(self,location,rating):
+        # statement  = self.db.select(Restaurant).where(Restaurant.location == location , Restaurant.rating == rating)
+        # restaurant = self.db.execute(statement).scalars().all()
+        restaurant = self.db.query(Restaurant).filter(Restaurant.location== location , Restaurant.rating == rating).all()
+        return restaurant
 
         
