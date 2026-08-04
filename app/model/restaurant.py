@@ -21,7 +21,7 @@ class Restaurant(Base):
         String(255)
     )
     rating : Mapped[int] = mapped_column(
-        Integer
+        Integer,nullable=True
     )
     created_at : Mapped[datetime] = mapped_column(
         Date, default=datetime.now

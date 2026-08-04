@@ -18,10 +18,6 @@ class Food(Base):
     price : Mapped[int] = mapped_column(
         Integer
     )
-    # category : Mapped[CategoryEnum] = mapped_column(
-    #     SqlEnum(CategoryEnum)
-        
-    # )
     food_type :Mapped[FOODTYPE] = mapped_column(
         SqlEnum(FOODTYPE)
     )
@@ -30,6 +26,9 @@ class Food(Base):
     )
     created_at : Mapped[datetime] = mapped_column(
         Date, default=datetime.now
+    )
+    is_available : Mapped[bool] = mapped_column(
+        default=True, nullable=True
     )
 
     restaurant  = relationship(
