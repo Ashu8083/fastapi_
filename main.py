@@ -6,13 +6,26 @@ from app.model.food_model import Food
 from app.api.user_api import user_router
 from app.api.resturant_router import router as restaurant_router
 from app.api.food_api import food_router
-
+from app.custom_execption.app_exception import AppException
+from fastapi.exceptions import RequestValidationError
+from app.custom_execption.exception_handeler import app_exception_handler,generic_exception_handler,validation_exception_handler
 
 app = FastAPI()
-
 app.include_router(user_router) 
 app.include_router(restaurant_router)
 app.include_router(food_router)  # Include your restaurant_router here
+app.add_exception_handler(
+    AppException,
+    app_exception_handler
+)
+app.add_exception_handler(
+    Exception,
+    generic_exception_handler
+)
+app.add_exception_handler(
+    RequestValidationError,
+    validation_exception_handler
+)
 Base.metadata.create_all(bind=engine)  # Create tables in the database
   # Include your user_service_router here
 
