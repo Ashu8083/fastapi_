@@ -21,6 +21,10 @@ class User(Base):
             String(255), unique=True, index=True, nullable=False
         )
 
+        password : Mapped[str] = mapped_column(
+            String(255), unique=False, nullable=False
+        )
+
         age: Mapped[int] = mapped_column(
             Integer, nullable=False
         )

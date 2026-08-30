@@ -6,7 +6,7 @@ from jose import jwt,ExpiredSignatureError,JWTError
 
 from app.core.logger_config import logger
 
-SECRET_KEY = 'asutoshGoud' # Secrete key
+SECRET_KEY = 'asutoshGoud673248563496061436ygae7' # Secrete key
 ALGORITHM = 'HS256'        # Algorithm which going to use to encode
 def generate_token(user_id : int):
     user_id = str(user_id)
@@ -31,7 +31,7 @@ def decode_auth_token(auth_token : str):
     except JWTError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,)
 
-    logger.info(f"user with {auth_token} has this {payload}")
+    logger.info(f"user with {auth_token} has this {payload['user_id']}")
     return payload
 
 

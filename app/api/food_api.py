@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException,Depends
+from fastapi import APIRouter, HTTPException,Depends,Request
 from sqlalchemy.orm import Session
 from app.dependency.service_dependency import get_food_service
 from app.schema.food_schema import CreateFood   
@@ -15,9 +15,10 @@ def create_food(create_food: CreateFood, restaurant_id: int, foodservice = Depen
 
         return {"message": "Food created successfully", "food": food}
 @food_router.get("/get-food-by-restaurant-id")
-def get_food_by_restaurant_id(restaurant_id: int, foodservice  = Depends(get_food_service)):
+def get_food_by_restaurant_id( request :Request ,restaurant_id: int, foodservice  = Depends(get_food_service)):
     logger.info("get-food-by-restaurant-id api start")
     food_items = foodservice.get_food_by_restaurant_id(restaurant_id)
+    logger.info(f"this url called by user with id : {request.state.auth.user_id} ")
 
     return {"food_items": food_items}
   
